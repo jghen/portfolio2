@@ -53,7 +53,6 @@ nav {
   font-weight: 700;
 }
 
-
 .wrapper {
   height: calc(100vh - 4rem);
   margin-top: 4rem;
@@ -85,19 +84,19 @@ nav {
   background-color: var(--page1-bg-color);
 }
 
-/* h1, header, article, p, blockquote {
+h1, header, article, p, blockquote {
   border: 1px solid red;
 }
 
 main {
   background-color: blueviolet;
-} */
+}
 
 .header-page1 {
   justify-content: flex-end;
   height: 45vh;
 }
-h1, h3 {
+h1{
   font-family: var(--font-headings);
   text-align: center;
 }
