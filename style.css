@@ -1,20 +1,24 @@
-/* * {box-sizing: border-box;} */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display&family=Raleway:wght@200;400&display=swap');
+
 :root {
-  --nav-color: rgb(206, 206, 206);
+  --nav-color: aliceblue;
   --page1-bg-color: rgb(4,9, 100);
-  --page2-bg-color: rgb(106, 49, 119);
+  --page2-bg-color: rgb(4,9, 100);
   --page3-bg-color: rgb(4, 9, 100);
-  --page4-bg-color: rgb(106, 49, 119);
+  --page4-bg-color: rgb(4,9, 100);
   --page5-bg-color: rgb(48, 41, 49);
   --bg-button: greenyellow;
   --dark-text-color: black;
-  --light-text-color: whitesmoke;
-  --font-headings: arial;
-  --font-text: sans-serif;
+  --light-text-color: rgb(242, 249, 255);
+  --font-headings: 'Raleway', sans-serif;
+  --font-text: 'Montserrat', sans-serif;
   --header-height: 4rem;
   --margin: 1rem auto;
-  --content-width: 85%;
+  --content-width: 95%;
+  --page-height: calc(100vh - var(--header-height));
 }
+
 body, html {
   margin: 0;
 }
@@ -22,7 +26,7 @@ body {
   margin: 0;
   max-height: 100vh;
   width: 100%;
-  color: var(--nav-color);
+  color: var(--light-text-color);
   font-family: var(--font-text);
 }
 
@@ -47,14 +51,14 @@ nav {
   text-align: center;
   text-decoration: none;
   text-transform: capitalize;
-  color: var(--page1-bg-color);
+  color: black;
 }
 .navlink.current{
   font-weight: 700;
 }
 
 .wrapper {
-  height: calc(100vh - 4rem);
+  height: var(--page-height);
   margin-top: 4rem;
   width: 100%;
   font-size: 16px;
@@ -79,33 +83,85 @@ nav {
   scroll-snap-align: start;
   
 }
-
+/* -------------------- page 1 ------------------ */
 #page1 {
   background-color: var(--page1-bg-color);
+  text-align: center;
 }
 
-h1, header, article, p, blockquote {
+.h1-big {
+  height: 31rem;
+  font-size: 9rem;
+  margin: 2rem auto;
+  text-transform: capitalize;
+  
+}
+/* .testz {
+  position: absolute;
+  margin-top: 4rem;
+  z-index: 10;
+  width: 50vw;
+  height: 45px;
+  border: 1px solid yellow;
+} */
+.arrow-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background-color: var(--nav-color);
+  height: calc(var(--page-height) - 33rem);
+  
+}
+.arrow {
+  height: 200px;
+  width: 100%;
+  font-size: 16rem;
+  transform: rotate(-90deg);
+  color: var(--page1-bg-color);
+  animation: nextPage 2s alternate ease-in-out infinite;
+  margin-right: 10rem;
+}
+
+@keyframes nextPage {
+  from {color: var(--page1-bg-color);}
+  to {color: var(--nav-color);}
+}
+
+/* -------- crazy --------- */
+
+/* .arrow-wrapper, h1, header, article, p, blockquote {
   border: 1px solid red;
 }
-
 main {
   background-color: blueviolet;
+} */
+
+/* -------- crazy --------- */
+
+
+/* -------------------- page 2 ------------------ */
+#page2 {
+  background-color: var(--page2-bg-color);
 }
 
-.header-page1 {
+.header-page2 {
   justify-content: flex-end;
-  height: 45vh;
+  height: 40vh;
 }
+
 h1{
   font-family: var(--font-headings);
   text-align: center;
 }
+
 header, main, article {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
 }
+
 main {
   height: 40vh;
 }
@@ -116,11 +172,11 @@ article, article > a  {
 
 img {
   width: 200px;
-  border-radius: 2px 25px 2px 25px;
+  border-radius: 2px 50px 2px 50px;
 }
 
 p {
-  width: var(--content-width);
+  width: 90%;
   margin: 0.5rem auto 1.5rem auto;
 }
 
@@ -142,13 +198,108 @@ a > button:active {
   transform: scale(0.96);
 }
 
-#page2 {
-  background-color: var(--page2-bg-color);
-}
+/* ---- page3 ---- */
 
 #page3 {
   background-color: var(--page3-bg-color);
 }
+
+.page3-div {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  position: relative;
+  z-index: 10;
+  display: inline-flex;
+  top: 5rem;
+}
+
+.animate-balls {
+  animation: balls 1s alternate ease-in-out 10 none;
+}
+
+/* .div1, .div2, .div3, .div4, .div5, .div6, .div7, .div8 {
+  animation: balls 1s alternate ease-in-out 10 none;
+} */
+.div1 {
+  background-color: red;
+  animation-delay: .1s;
+  margin-left: 50px;
+}
+.div2 {
+  background-color: orange;
+  animation-delay: .2s;
+}
+.div3 {
+  background-color: yellow;
+  animation-delay: .3s;
+}
+.div4 {
+  background-color: yellowgreen;
+  animation-delay: .4s;
+}
+.div5 {
+  background-color: green;
+  animation-delay: .5s;
+}
+.div6 {
+  background-color: blue;
+  animation-delay: .6s;
+}
+.div7 {
+  background-color: rgb(83, 0, 161);
+  animation-delay: .7s;
+}
+.div8 {
+  background-color: violet;
+  animation-delay: .8s;
+}
+
+@keyframes balls {
+  from {
+    opacity: 1;
+    margin: 0 .1rem;
+  }
+  to {
+  opacity: .9;
+  margin: .1rem .4rem .1rem 0;
+  top: calc(var(--page-height) - 2rem);
+  height: 26px;
+  }
+}
+
+.finish {
+  position: relative;
+  z-index: 20;
+  width: var(--content-width);
+  height: calc(var(--page-height) - 50px);
+  opacity: 0;
+  background-color: var(--page1-bg-color);
+  margin: auto;
+}
+
+.animate-finish {
+  animation: finish 2s ease-in 10s 1 forwards;
+}
+
+@keyframes finish {
+  from {
+    opacity: 0;
+  }
+  to {
+    display: block;
+    opacity: 1;
+  }
+}
+
+.h1-big2 {
+  font-size: 8rem;
+  height: fit-content;
+  text-transform: uppercase;
+}
+
+
+/* ---- page4 ---- */
 
 #page4 {
   background-color: var(--page4-bg-color);
