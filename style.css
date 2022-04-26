@@ -1,22 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display&family=Raleway:wght@200;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display&family=Raleway:wght@200;400;600&display=swap');
 
 :root {
-  --nav-color: aliceblue;
-  --page1-bg-color: rgb(4,9, 100);
-  --page2-bg-color: rgb(4,9, 100);
-  --page3-bg-color: rgb(4, 9, 100);
-  --page4-bg-color: rgb(4,9, 100);
-  --page5-bg-color: rgb(48, 41, 49);
+  --bg-secondary-color: aliceblue;
+  --bg-primary-color: rgb(4,9, 100);
   --bg-button: greenyellow;
   --dark-text-color: black;
   --light-text-color: rgb(242, 249, 255);
   --font-headings: 'Raleway', sans-serif;
   --font-text: 'Montserrat', sans-serif;
   --header-height: 4rem;
-  --margin: 1rem auto;
   --content-width: 95%;
   --page-height: calc(100vh - var(--header-height));
+  --border-radius-button: 15px;
+  --button-height: 2rem;
+  --ball-size: calc(100vw / 10);
 }
 
 body, html {
@@ -31,11 +29,14 @@ body {
 }
 
 .main-header {
-  background-color: var(--nav-color);
+  background-color: var(--bg-secondary-color);
   height: var(--header-height);
   width: 100%;
   position: fixed;
   top: 0;
+}
+a {
+  text-decoration: none;
 }
 
 nav {
@@ -45,14 +46,15 @@ nav {
   width: 100%;
   
 }
+
 .navlink {
   display: block;
   width: 4rem;
   text-align: center;
-  text-decoration: none;
   text-transform: capitalize;
   color: black;
 }
+
 .navlink.current{
   font-weight: 700;
 }
@@ -61,8 +63,6 @@ nav {
   height: var(--page-height);
   margin-top: 4rem;
   width: 100%;
-  font-size: 16px;
-  
   overflow: scroll;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
@@ -76,18 +76,64 @@ nav {
 }
 
 .page {
-  background-color: var(--secondary-color);
+  background-color: var(--bg-primary-color);
   height: inherit;
   width: 100%;
   flex-shrink: 0;
   scroll-snap-align: start;
-  
-}
-/* -------------------- page 1 ------------------ */
-#page1 {
-  background-color: var(--page1-bg-color);
   text-align: center;
 }
+
+.page2, .page3 .page4, .page5, header, main, article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+h1{
+  font-family: var(--font-headings);
+  text-align: center;
+}
+main {
+  height: 40vh;
+}
+
+article, article > a  {
+  width: var(--content-width);
+}
+
+img {
+  border-radius: 100%;
+}
+
+p {
+  width: 90%;
+  margin: 0.5rem auto 1.5rem auto;
+}
+
+a > button {
+  width: var(--content-width);
+  height: var(--button-height);
+  background-color: var(--bg-button);
+  color: var(--bg-primary-color);
+  border: none;
+  border-radius: var(--border-radius-button);
+  opacity: .9;
+  transition: transform .05s linear;
+  font-weight: 600;
+}
+
+a > button:hover {
+  opacity: 1;
+  outline: auto var(--bg-button);
+}
+a > button:active {
+  transform: scale(0.96);
+}
+
+/* -------------------- page 1 ------------------ */
+
 
 .h1-big {
   height: 31rem;
@@ -108,8 +154,8 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-decoration: none;
-  background-color: var(--nav-color);
+  
+  background-color: var(--bg-secondary-color);
   height: calc(var(--page-height) - 33rem);
   
 }
@@ -118,14 +164,14 @@ nav {
   width: 100%;
   font-size: 16rem;
   transform: rotate(-90deg);
-  color: var(--page1-bg-color);
+  color: var(--bg-primary-color);
   animation: nextPage 2s alternate ease-in-out infinite;
   margin-right: 10rem;
 }
 
 @keyframes nextPage {
-  from {color: var(--page1-bg-color);}
-  to {color: var(--nav-color);}
+  from {color: var(--bg-primary-color);}
+  to {color: var(--bg-secondary-color);}
 }
 
 /* -------- crazy --------- */
@@ -141,77 +187,23 @@ main {
 
 
 /* -------------------- page 2 ------------------ */
-#page2 {
-  background-color: var(--page2-bg-color);
-}
 
 .header-page2 {
   justify-content: flex-end;
   height: 40vh;
 }
 
-h1{
-  font-family: var(--font-headings);
-  text-align: center;
-}
 
-header, main, article {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-main {
-  height: 40vh;
-}
-
-article, article > a  {
-  width: var(--content-width);
-}
-
-img {
-  width: 200px;
-  border-radius: 2px 50px 2px 50px;
-}
-
-p {
-  width: 90%;
-  margin: 0.5rem auto 1.5rem auto;
-}
-
-a > button {
-  width: 100%;
-  height: 2rem;
-  background-color: var(--bg-button);
-  border: none;
-  border-radius: 15px;
-  opacity: .9;
-  transition: transform .05s linear;
-}
-
-a > button:hover {
-  opacity: 1;
-  outline: auto var(--bg-button);
-}
-a > button:active {
-  transform: scale(0.96);
-}
-
-/* ---- page3 ---- */
-
-#page3 {
-  background-color: var(--page3-bg-color);
-}
+/* -------------------- page 3 ------------------ */
 
 .page3-div {
-  width: 30px;
-  height: 30px;
+  width: var(--ball-size);
+  height: var(--ball-size);
   border-radius: 100%;
   position: relative;
   z-index: 10;
   display: inline-flex;
-  top: 5rem;
+  top: calc(var(--ball-size) * -1);
 }
 
 .animate-balls {
@@ -224,7 +216,6 @@ a > button:active {
 .div1 {
   background-color: red;
   animation-delay: .1s;
-  margin-left: 50px;
 }
 .div2 {
   background-color: orange;
@@ -258,11 +249,10 @@ a > button:active {
 @keyframes balls {
   from {
     opacity: 1;
-    margin: 0 .1rem;
+    top: 0;
   }
   to {
   opacity: .9;
-  margin: .1rem .4rem .1rem 0;
   top: calc(var(--page-height) - 2rem);
   height: 26px;
   }
@@ -272,10 +262,10 @@ a > button:active {
   position: relative;
   z-index: 20;
   width: var(--content-width);
-  height: calc(var(--page-height) - 50px);
+  /* height: calc(var(--page-height) - 50px); */
   opacity: 0;
-  background-color: var(--page1-bg-color);
-  margin: auto;
+  background-color: var(--bg-primary-color);
+  margin: 0 auto;
 }
 
 .animate-finish {
@@ -296,19 +286,87 @@ a > button:active {
   font-size: 8rem;
   height: fit-content;
   text-transform: uppercase;
+  width: var(--content-width);
+}
+
+.restart-animation {
+  width: var(--content-width);
+  height: var(--button-height);
+  border: 1px solid var(--bg-secondary-color);
+  border-radius: var(--border-radius-button);
+  background-color: none;
+  margin: 2rem auto 3rem auto;
+  text-transform: capitalize;
+  font-weight: 600;
 }
 
 
-/* ---- page4 ---- */
+/* -------------------- page 4 ------------------ */
 
-#page4 {
-  background-color: var(--page4-bg-color);
+
+/* -------------------- page 5 ------------------ */
+.h1-big3 {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.email {
+  color: var(--bg-secondary-color);
+}
+.con{
+  letter-spacing: 8.9px;
+  font-size: 132%;
+  position: relative;
+  z-index: 2;
+  background-color: orangered;
+  opacity: .3;
+  color: black;
+  padding-left: 3.64px;
+  margin: 38.01px -123.33px 0 0;
+}
+.tact{
+  position: relative;
+  z-index: 1;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  background-color: rgb(56, 180, 180);
+  margin-right: 100px;
+}
+.SoMe-icon-wrapper {
+  width: var(--content-width);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.icon {
+  width: 50px;
+  height: 50px;
+}
+.facebook, .linkedin {
+  
+  
+}
+.linkedin-icon , .facebook-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: 900;
+  background-color: white;
+  color: var(--bg-primary-color);
+  border-radius: 50%;
+  
+}
+.facebook-icon {
+  font-size: 56px;
+}
+.linkedin-icon {
+  letter-spacing: -3px;
 }
 
-#page5 {
-  background-color: var(--page5-bg-color);
-}
 
+/* -------------------- MEDIA Queries ------------------ */
 @media only screen and (min-width: 44em) {
   .wrapper {
     display: flex;
