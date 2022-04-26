@@ -311,9 +311,11 @@ main {
   justify-content: center;
   align-items: center;
 }
+
 .email {
   color: var(--bg-secondary-color);
 }
+
 .con{
   letter-spacing: 8.9px;
   font-size: 132%;
@@ -325,6 +327,7 @@ main {
   padding-left: 3.64px;
   margin: 38.01px -123.33px 0 0;
 }
+
 .tact{
   position: relative;
   z-index: 1;
@@ -333,20 +336,19 @@ main {
   background-color: rgb(56, 180, 180);
   margin-right: 100px;
 }
+
 .SoMe-icon-wrapper {
   width: var(--content-width);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
+
 .icon {
   width: 50px;
   height: 50px;
 }
-.facebook, .linkedin {
-  
-  
-}
+
 .linkedin-icon , .facebook-icon {
   display: flex;
   align-items: center;
