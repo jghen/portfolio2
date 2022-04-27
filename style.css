@@ -304,21 +304,25 @@ main {
 /* -------------------- page 4 ------------------ */
 .header-page4 {
   height: var(--page-height);
+  justify-content: center;
+}
+.h1-big4 {
+  margin: 4rem auto 0;
+  position: relative;
+  z-index: 2;
 }
 iframe {
+  margin: -6rem 0;
+  
   position: relative;
   transform: scale(.62);
   height: 100%;
   width: 150%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+
   z-index: 5;
   overflow: scroll;
   scroll-behavior: smooth;
-  margin: 0;
-  padding: 0;
+
 }
 
 /* -------------------- page 5 ------------------ */
