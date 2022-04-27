@@ -3,7 +3,7 @@
 
 :root {
   --bg-secondary-color: aliceblue;
-  --bg-primary-color: rgb(4,9, 100);
+  --bg-primary-color: rgb(0, 3, 61);
   --bg-button: greenyellow;
   --dark-text-color: black;
   --light-text-color: rgb(242, 249, 255);
@@ -302,9 +302,31 @@ main {
 
 
 /* -------------------- page 4 ------------------ */
-
+.header-page4 {
+  height: var(--page-height);
+}
+iframe {
+  position: relative;
+  transform: scale(.62);
+  height: 100%;
+  width: 150%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
 
 /* -------------------- page 5 ------------------ */
+.header-page5 {
+  justify-content: space-around;
+  
+  height: 50vh;
+}
 .h1-big3 {
   font-size: 2rem;
   display: flex;
@@ -312,29 +334,35 @@ main {
   align-items: center;
 }
 
-.email {
-  color: var(--bg-secondary-color);
+.con , .tact {
+  position: relative;
+  z-index: 1;
+  opacity: .7;
+  padding: 0;
 }
 
 .con{
   letter-spacing: 8.9px;
-  font-size: 132%;
+  font-size: 140%;
   position: relative;
   z-index: 2;
-  background-color: orangered;
-  opacity: .3;
-  color: black;
-  padding-left: 3.64px;
-  margin: 38.01px -123.33px 0 0;
+  background-color: rgb(56, 180, 180);
+  
+  padding: 0 0 0 2.53px;
+  margin: 37.01px -127.53px 0 0;
 }
 
 .tact{
   position: relative;
-  z-index: 1;
   writing-mode: vertical-rl;
   text-orientation: upright;
-  background-color: rgb(56, 180, 180);
+  background-color: orangered;
+  color: black;
   margin-right: 100px;
+}
+
+.email {
+  color: var(--bg-secondary-color);
 }
 
 .SoMe-icon-wrapper {
@@ -347,14 +375,16 @@ main {
 .icon {
   width: 50px;
   height: 50px;
+  font-size: 40px;
+  font-weight: 900;
+  vertical-align: top;
+  opacity: .5;
 }
 
 .linkedin-icon , .facebook-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 40px;
-  font-weight: 900;
   background-color: white;
   color: var(--bg-primary-color);
   border-radius: 50%;
