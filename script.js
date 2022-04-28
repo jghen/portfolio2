@@ -1,3 +1,4 @@
+// navlink stay bold - scrolling not included
 const links = document.querySelectorAll('.navlink');
 const arrayOfLinks = Array.from(links);
 
@@ -10,8 +11,10 @@ links.forEach(item => {
   item.addEventListener('click', handleClick)
 })
 
-const page3 = document.querySelector('.h1-big2');
-const balls = document.querySelectorAll('.page3-div');
+// animation
+
+const page3 = document.querySelector('.page3');
+const balls = document.querySelectorAll('.ball');
 const ballsArray = Array.from(balls);
 
 const finish = document.querySelector('.finish');

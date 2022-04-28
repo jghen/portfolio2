@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display&family=Raleway:wght@200;400;600&display=swap');
-
+*{box-sizing: border-box;}
 :root {
   --bg-secondary-color: aliceblue;
   --bg-primary-color: rgb(0, 3, 61);
@@ -33,6 +33,7 @@ body {
   height: var(--header-height);
   width: 100%;
   position: fixed;
+  z-index: 50;
   top: 0;
 }
 a {
@@ -49,7 +50,6 @@ nav {
 
 .navlink {
   display: block;
-  width: 4rem;
   text-align: center;
   text-transform: capitalize;
   color: black;
@@ -76,15 +76,16 @@ nav {
 }
 
 .page {
+  position:static;
+  z-index: 0;
   background-color: var(--bg-primary-color);
-  height: inherit;
+  height: var(--page-height);
   width: 100%;
-  flex-shrink: 0;
   scroll-snap-align: start;
   text-align: center;
 }
 
-.page2, .page3 .page4, .page5, header, main, article {
+.page, header, main, article, .arrow-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -94,6 +95,8 @@ nav {
 h1{
   font-family: var(--font-headings);
   text-align: center;
+  font-size: calc(5rem - (var(--page-height) / 25));
+  margin: 0 0 1rem 0;
 }
 main {
   height: 40vh;
@@ -109,10 +112,10 @@ img {
 
 p {
   width: 90%;
-  margin: 0.5rem auto 1.5rem auto;
+  margin: 0 auto 1.5rem auto;
 }
 
-a > button {
+button {
   width: var(--content-width);
   height: var(--button-height);
   background-color: var(--bg-button);
@@ -124,11 +127,11 @@ a > button {
   font-weight: 600;
 }
 
-a > button:hover {
+button:hover {
   opacity: 1;
   outline: auto var(--bg-button);
 }
-a > button:active {
+button:active {
   transform: scale(0.96);
 }
 
@@ -137,28 +140,25 @@ a > button:active {
 
 .h1-big {
   height: 31rem;
-  font-size: 9rem;
-  margin: 2rem auto;
+  font-size: 8rem;
+  margin: 0;
   text-transform: capitalize;
-  
+  animation: animate-h1 2s ease-in-out 1s 1 alternate backwards;
 }
-/* .testz {
-  position: absolute;
-  margin-top: 4rem;
-  z-index: 10;
-  width: 50vw;
-  height: 45px;
-  border: 1px solid yellow;
-} */
+
+@keyframes animate-h1 {
+  from {color: var(--bg-primary-color);}
+  to {color: var(--bg-secondary-color);}
+}
+
 .arrow-wrapper{
-  display: flex;
+  margin: 0;
+  width: 100%;
   justify-content: center;
-  align-items: center;
-  
   background-color: var(--bg-secondary-color);
-  height: calc(var(--page-height) - 33rem);
-  
+  height: calc(var(--page-height) - 31rem);
 }
+
 .arrow {
   height: 200px;
   width: 100%;
@@ -176,12 +176,12 @@ a > button:active {
 
 /* -------- crazy --------- */
 
-/* .arrow-wrapper, h1, header, article, p, blockquote {
+.arrow-wrapper, h1, header, article, p, blockquote {
   border: 1px solid red;
 }
 main {
   background-color: blueviolet;
-} */
+}
 
 /* -------- crazy --------- */
 
@@ -196,18 +196,28 @@ main {
 
 /* -------------------- page 3 ------------------ */
 
-.page3-div {
-  width: var(--ball-size);
+.ball-wrapper {
+  width: 100%;
   height: var(--ball-size);
-  border-radius: 100%;
+  
   position: relative;
   z-index: 10;
   display: inline-flex;
   top: calc(var(--ball-size) * -1);
+  
+}
+.ball {
+  position: relative;
+  z-index: 10;
+  margin: 0 auto;
+  border-radius: 100%;
+  width: var(--ball-size);
+  height: var(--ball-size);
+  opacity: 0;
 }
 
 .animate-balls {
-  animation: balls 1s alternate ease-in-out 10 none;
+  animation: balls 1s alternate ease-in-out 10;
 }
 
 /* .div1, .div2, .div3, .div4, .div5, .div6, .div7, .div8 {
@@ -259,10 +269,10 @@ main {
 }
 
 .finish {
-  position: relative;
+  position: static;
   z-index: 20;
   width: var(--content-width);
-  /* height: calc(var(--page-height) - 50px); */
+  height: var(--page-height);
   opacity: 0;
   background-color: var(--bg-primary-color);
   margin: 0 auto;
@@ -283,10 +293,8 @@ main {
 }
 
 .h1-big2 {
-  font-size: 8rem;
   height: fit-content;
   text-transform: uppercase;
-  width: var(--content-width);
 }
 
 .restart-animation {
@@ -295,7 +303,6 @@ main {
   border: 1px solid var(--bg-secondary-color);
   border-radius: var(--border-radius-button);
   background-color: none;
-  margin: 2rem auto 3rem auto;
   text-transform: capitalize;
   font-weight: 600;
 }
@@ -305,6 +312,8 @@ main {
 .header-page4 {
   height: var(--page-height);
   justify-content: center;
+  position: relative;
+  z-index: 0;
 }
 .h1-big4 {
   margin: 4rem auto 0;
