@@ -9,22 +9,28 @@ linkArray[0].classList.add('current');
 
 headerHeight = document.querySelector('.main-header').offsetHeight;
 
-document.querySelector('.wrapper').onscroll = () => {
+document.querySelector('.wrapper').onscroll = (event) => {
+  console.log(event);
   let scrollY = document.querySelector('.wrapper').scrollTop;
+  let scrollX = document.querySelector('.wrapper').scrollLeft;
   pageArray.map((page,i)=>{
     const pageTop = page.offsetTop - headerHeight;
     const pageHeight = page.offsetHeight;
-    if (!(scrollY >= pageTop &&
-        scrollY < pageTop + pageHeight
-      )) {
+    const pageLeft = page.offsetLeft;
+    const pageWidth = page.offsetWidth;
+
+    const pageInViewX = (scrollX >= pageLeft && scrollX < pageLeft + pageWidth);
+    const pageInViewY = (scrollY >= pageTop && scrollY < pageTop + pageHeight);
+    
+    if (!pageInViewY || !pageInViewX) {
         linkArray[i].classList.remove('current');
     } else {
-      linkArray[i].classList.add('current');
+    linkArray[i].classList.add('current');
     }
   })
 }
 
-//animation
+//---------animation-----------
 const page3 = document.querySelector('.page3');
 const balls = document.querySelectorAll('.ball');
 const ballsArray = Array.from(balls);
