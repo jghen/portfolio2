@@ -289,7 +289,7 @@ button:active {
   position: static;
   z-index: 5;
   width: var(--content-width);
-  height: var(--page-height);
+  height: calc(var(--page-height) - var(--ball-size));
   opacity: 0;
   background-color: var(--bg-primary-color);
   margin: 0 auto;
