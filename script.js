@@ -1,18 +1,30 @@
-// navlink stay bold - scrolling not included
-const links = document.querySelectorAll('.navlink');
-const arrayOfLinks = Array.from(links);
+//scrolling - links must be active on scroll.
 
-const handleClick = (event)=>{
-  arrayOfLinks.map(link => link.classList.remove('current'));
-  event.target.classList.add('current');
+const pages = document.querySelectorAll('.page');
+const pageArray = Array.from(pages);
+const links = document.querySelectorAll('.navlink');
+const linkArray = Array.from(links);
+
+linkArray[0].classList.add('current');
+
+headerHeight = document.querySelector('.main-header').offsetHeight;
+
+document.querySelector('.wrapper').onscroll = () => {
+  let scrollY = document.querySelector('.wrapper').scrollTop;
+  pageArray.map((page,i)=>{
+    const pageTop = page.offsetTop - headerHeight;
+    const pageHeight = page.offsetHeight;
+    if (!(scrollY >= pageTop &&
+        scrollY < pageTop + pageHeight
+      )) {
+        linkArray[i].classList.remove('current');
+    } else {
+      linkArray[i].classList.add('current');
+    }
+  })
 }
 
-links.forEach(item => {
-  item.addEventListener('click', handleClick)
-})
-
-// animation
-
+//animation
 const page3 = document.querySelector('.page3');
 const balls = document.querySelectorAll('.ball');
 const ballsArray = Array.from(balls);
@@ -24,23 +36,23 @@ const removeAnimationClasses =() => {
   finish.classList.remove('animate-finish');
 }
 
-const animate = () => {
-  removeAnimationClasses();
+const animation = () => {
   ballsArray.map(ball => ball.classList.add('animate-balls'));
   finish.classList.add('animate-finish');
 }
 
-const resetAnimate = () => {
+const animate = () => {
   removeAnimationClasses();
   setTimeout(() => {
-    animate();
-  }, 500);
+    animation();
+  }, 300);
 }
 
-let observer = new IntersectionObserver((entries) => {
+let page3observer = new IntersectionObserver((entries) => {
   if (entries[0].isIntersecting) animate();
 });
 
-observer.observe(page3);
+page3observer.observe(page3);
 
-document.querySelector('.restart-animation').addEventListener('click', resetAnimate);
+const resetBtn = document.querySelector('.restart-animation');
+resetBtn.addEventListener('click', animate);

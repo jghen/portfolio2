@@ -14,18 +14,18 @@
   --page-height: calc(100vh - var(--header-height));
   --border-radius-button: 15px;
   --button-height: 2rem;
-  --ball-size: calc(100vw / 10);
+  --ball-size: 4rem;
 }
 
 body, html {
   margin: 0;
+  padding: 0;
 }
 body {
-  margin: 0;
-  max-height: 100vh;
   width: 100%;
   color: var(--light-text-color);
   font-family: var(--font-text);
+  background-color: var(--bg-primary-color);
 }
 
 .main-header {
@@ -38,6 +38,22 @@ body {
 }
 a {
   text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+a:active{
+  font-weight: 700;
+}
+
+a:focus-visible {
+  outline: none;
+}
+a:-webkit-any-link:active {
+  color:none;
+  background: none;
+  -moz-user-focus: none;
 }
 
 nav {
@@ -57,18 +73,19 @@ nav {
 
 .navlink.current{
   font-weight: 700;
+  text-decoration: underline;
 }
 
 .wrapper {
-  height: var(--page-height);
   margin-top: 4rem;
+  height: var(--page-height);
   width: 100%;
   overflow: scroll;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-  -webkit-overflow-scrolling: touch; /* only webkit supported browsers */
+  -webkit-overflow-scrolling: touch;/*  only webkit supported browsers */
 }
 
 .wrapper::-webkit-scrollbar {
@@ -76,12 +93,12 @@ nav {
 }
 
 .page {
+  height: var(--page-height);
   position:static;
   z-index: 0;
   background-color: var(--bg-primary-color);
-  height: var(--page-height);
   width: 100%;
-  scroll-snap-align: start;
+  scroll-snap-align: start end;
   text-align: center;
 }
 
@@ -99,12 +116,18 @@ h1{
   margin: 0 0 1rem 0;
 }
 main {
-  height: 40vh;
+  position: static;
+  z-index: 15;
+  height: calc(var(--page-height) - 40vh);
 }
 
-article, article > a  {
+article {
   width: var(--content-width);
 }
+article > a {
+  width: 100%;
+}
+
 
 img {
   border-radius: 100%;
@@ -157,34 +180,28 @@ button:active {
   justify-content: center;
   background-color: var(--bg-secondary-color);
   height: calc(var(--page-height) - 31rem);
+  
 }
+.arrow-wrapper:focus, .arrow-wrapper:hover  {
+  text-decoration: none;
+}
+
 
 .arrow {
   height: 200px;
-  width: 100%;
+  width: 10%;
   font-size: 16rem;
   transform: rotate(-90deg);
   color: var(--bg-primary-color);
   animation: nextPage 2s alternate ease-in-out infinite;
   margin-right: 10rem;
+  
 }
 
 @keyframes nextPage {
   from {color: var(--bg-primary-color);}
   to {color: var(--bg-secondary-color);}
 }
-
-/* -------- crazy --------- */
-
-.arrow-wrapper, h1, header, article, p, blockquote {
-  border: 1px solid red;
-}
-main {
-  background-color: blueviolet;
-}
-
-/* -------- crazy --------- */
-
 
 /* -------------------- page 2 ------------------ */
 
@@ -199,7 +216,6 @@ main {
 .ball-wrapper {
   width: 100%;
   height: var(--ball-size);
-  
   position: relative;
   z-index: 10;
   display: inline-flex;
@@ -217,7 +233,7 @@ main {
 }
 
 .animate-balls {
-  animation: balls 1s alternate ease-in-out 10;
+  animation: balls 1s alternate ease-in-out 4;
 }
 
 /* .div1, .div2, .div3, .div4, .div5, .div6, .div7, .div8 {
@@ -263,14 +279,14 @@ main {
   }
   to {
   opacity: .9;
-  top: calc(var(--page-height) - 2rem);
-  height: 26px;
+  top: var(--page-height);
+  height: calc(var(--ball-size) - 6px);
   }
 }
 
 .finish {
   position: static;
-  z-index: 20;
+  z-index: 5;
   width: var(--content-width);
   height: var(--page-height);
   opacity: 0;
@@ -279,7 +295,7 @@ main {
 }
 
 .animate-finish {
-  animation: finish 2s ease-in 10s 1 forwards;
+  animation: finish 2s ease-in 4s 1 forwards;
 }
 
 @keyframes finish {
@@ -298,8 +314,8 @@ main {
 }
 
 .restart-animation {
-  width: var(--content-width);
-  height: var(--button-height);
+  
+
   border: 1px solid var(--bg-secondary-color);
   border-radius: var(--border-radius-button);
   background-color: none;
@@ -309,6 +325,7 @@ main {
 
 
 /* -------------------- page 4 ------------------ */
+
 .header-page4 {
   height: var(--page-height);
   justify-content: center;
@@ -322,12 +339,10 @@ main {
 }
 iframe {
   margin: -6rem 0;
-  
   position: relative;
   transform: scale(.62);
   height: 100%;
   width: 150%;
-
   z-index: 5;
   overflow: scroll;
   scroll-behavior: smooth;
@@ -335,6 +350,9 @@ iframe {
 }
 
 /* -------------------- page 5 ------------------ */
+.page5 {
+  height: var(--page-height);
+}
 .header-page5 {
   justify-content: space-around;
   
@@ -414,11 +432,95 @@ iframe {
 /* -------------------- MEDIA Queries ------------------ */
 @media only screen and (min-width: 44em) {
   .wrapper {
+    max-height: var(--page-height);
     display: flex;
     scroll-snap-type: x mandatory;
+   
+  }
+  .page, .page1,.page2,.page3,.page4,.page5 {
+    max-height: var(--page-height);
+    flex-direction: row;
+    min-width: 100vw;
+  }
+  .arrow-wrapper{
+    background-color: var(--bg-primary-color);
+  }
+  .arrow {
+    transform: rotate(-180deg);
+  }
+  .header-page2 {
+    height: 20rem;
+  }
+  main {
+    width: calc(var(--content-width) / 2);
+    height: 20rem;
+  }
+  
+  img {
+    border-radius: 100%;
+    margin: 2rem auto;
+  }
+  blockquote {
+    margin-bottom: 4rem;
+  }
+  
+  p {
+    width: 100%;
+    text-align: left;
+    margin: 0;
+  }
+  
+  .page3, .page5 {
+    flex-direction: column;
+  }
+  .page3 {
+    justify-content: space-between;
+  }
+  
+  .finish {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: calc(var(--content-width) / 1.2);
+    height: fit-content;
+    justify-items: center;
+    margin: auto;
+  }
+  .h1-big2 {
+    grid-row: 1/3;
+    width: 20rem;
+  }
+  .header-page4 {
+    flex-direction: row;
+    width: var(--content-width);
+    height: var(--page-height);
+    align-items: end;
+  }
+  .h1-big4 {
+    display: none;
+  }
+  iframe {
+    transform: scale(.9);
+    width: 80%;
+    z-index: 5;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    bottom: 4rem;
   }
 
 }
+/* -------- borders for layout --------- */
+
+/* .arrow-wrapper, h1, header, article, p, blockquote {
+  border: 1px solid red;
+}
+main {
+  background-color: blueviolet;
+} */
+
+
+/* -------- crazy borders for layout --------- */
+
 
 
 
