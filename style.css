@@ -114,7 +114,7 @@ h1{
   font-family: var(--font-headings);
   text-align: center;
   font-size: calc(4rem - (var(--page-height) / 25));
-  margin: 0 0 1rem 0;
+  /* margin: 0 0 1rem 0; */
 }
 main {
   position: relative;
@@ -451,6 +451,7 @@ iframe {
     transform: rotate(-180deg);
     height: 60%;
     width: 50%;
+    margin-top: 4rem;
   }
   .page2 {
     place-items: center;
@@ -463,7 +464,6 @@ iframe {
   
   main {
     width: calc(var(--content-width) / 2);
-    height: 20rem;
   }
   
   img {
@@ -475,7 +475,7 @@ iframe {
   }
   
   p {
-    width: 100%;
+    width: 90%;
     text-align: left;
     margin: 0;
   }
@@ -485,10 +485,6 @@ iframe {
   }
   .page3 {
     justify-content: space-between;
-  }
-  .ball {
-    height: 4rem;
-    width: 4rem;
   }
   
   .finish {
