@@ -42,19 +42,15 @@ a {
 a:hover {
   text-decoration: underline;
   cursor: pointer;
+  outline: none;
 }
 a:active{
   font-weight: 700;
-  background: transparent;
+  text-decoration: none;
 }
 
 a:focus-visible {
   outline: none;
-}
-a:-webkit-any-link:active {
-  color:none;
-  background: none;
-  -moz-user-focus: none;
 }
 
 nav {
@@ -325,7 +321,7 @@ button:active {
   to {
   opacity: .9;
   top: calc(var(--page-height) - var(--ball-size));
-  height: calc(var(--ball-size) - 6px);
+  height: calc(var(--ball-size) - 4px);
   }
 }
 
@@ -354,7 +350,6 @@ button:active {
 }
 
 .restart-animation {
-  border: 1px solid var(--bg-secondary-color);
   border-radius: var(--border-radius-button);
   background-color: none;
   text-transform: capitalize;
@@ -452,6 +447,12 @@ iframe {
   vertical-align: top;
   opacity: .5;
 }
+.facebook:hover, .linkedin:hover, .icon:hover {
+  outline:none;
+  text-decoration: none;
+  opacity: .9;
+}
+
 
 .linkedin-icon , .facebook-icon {
   display: flex;
@@ -460,6 +461,7 @@ iframe {
   background-color: white;
   color: var(--bg-primary-color);
   border-radius: 50%;
+  text-decoration: none;
   
 }
 .facebook-icon {

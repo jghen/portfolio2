@@ -1,4 +1,4 @@
-//scrolling - links must be active on scroll.
+//scrolling - make link underline and bold on scroll.
 
 const pages = document.querySelectorAll('.page');
 const pageArray = Array.from(pages);
@@ -9,11 +9,12 @@ linkArray[0].classList.add('current');
 
 headerHeight = document.querySelector('.main-header').offsetHeight;
 
-document.querySelector('.wrapper').onscroll = (event) => {
-  console.log(event);
+document.querySelector('.wrapper').onscroll = () => {
   let scrollY = document.querySelector('.wrapper').scrollTop;
   let scrollX = document.querySelector('.wrapper').scrollLeft;
+
   pageArray.map((page,i)=>{
+
     const pageTop = page.offsetTop - headerHeight;
     const pageHeight = page.offsetHeight;
     const pageLeft = page.offsetLeft;
