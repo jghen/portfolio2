@@ -10,8 +10,8 @@ linkArray[0].classList.add('current');
 headerHeight = document.querySelector('.main-header').offsetHeight;
 
 document.querySelector('.wrapper').onscroll = () => {
-  let scrollY = document.querySelector('.wrapper').scrollTop;
-  let scrollX = document.querySelector('.wrapper').scrollLeft;
+  let scrollY = Math.ceil(document.querySelector('.wrapper').scrollTop);
+  let scrollX = Math.ceil(document.querySelector('.wrapper').scrollLeft);
 
   pageArray.map((page,i)=>{
 
@@ -22,7 +22,7 @@ document.querySelector('.wrapper').onscroll = () => {
 
     const pageInViewX = (scrollX >= pageLeft && scrollX < pageLeft + pageWidth);
     const pageInViewY = (scrollY >= pageTop && scrollY < pageTop + pageHeight);
-    
+
     if (!pageInViewY || !pageInViewX) {
         linkArray[i].classList.remove('current');
     } else {
