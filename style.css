@@ -42,7 +42,7 @@ a {
 a:hover {
   cursor: pointer;
   outline: none;
-  text-decoration: none;
+  opacity: .7;
 }
 a:active{
   font-weight: 700;
@@ -465,14 +465,18 @@ iframe {
 .facebook:hover, .linkedin:hover, .icon:hover {
   outline:none;
   text-decoration: none;
-  opacity: .9;
+  opacity: .8;
+}
+
+.github-icon:hover {
+  opacity: 1;
 }
 
 .linkedin-icon , .facebook-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: var(--bg-secondary-color);
   color: var(--bg-primary-color);
   border-radius: 50%;
   text-decoration: none;
