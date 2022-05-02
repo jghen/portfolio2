@@ -40,17 +40,18 @@ a {
   text-decoration: none;
 }
 a:hover {
-  text-decoration: underline;
   cursor: pointer;
   outline: none;
+  text-decoration: none;
 }
 a:active{
   font-weight: 700;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a:focus-visible {
   outline: none;
+  text-decoration: none;
 }
 
 nav {
@@ -132,7 +133,7 @@ img {
 
 p {
   width: 80%;
-  margin: 0 auto 1.5rem auto;
+  /* margin: 0 auto 1.5rem auto; */
 }
 
 button {
@@ -145,6 +146,7 @@ button {
   opacity: .9;
   transition: transform .05s linear;
   font-weight: 600;
+  cursor: pointer;
 }
 
 button:hover {
@@ -389,7 +391,6 @@ iframe {
 }
 .header-page5 {
   justify-content: space-around;
-  
   height: 50vh;
 }
 .h1-big5 {
@@ -399,6 +400,10 @@ iframe {
   align-items: center;
   height: fit-content;
   text-transform: uppercase;
+}
+
+.page5 p {
+  width: 100%;
 }
 
 .con , .tact {
@@ -452,7 +457,6 @@ iframe {
   text-decoration: none;
   opacity: .9;
 }
-
 
 .linkedin-icon , .facebook-icon {
   display: flex;
